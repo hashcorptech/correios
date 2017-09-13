@@ -36,12 +36,31 @@ class BuscaCep
     }
 
     /**
+     * Validates ZIP code.
+     *
+     * @param string $cep
+     * @throws CepInvalidoException
+     */
+    protected function validateCep(string $cep)
+    {
+        if ($this->isInvalidCed($cep)) {
+            throw new CepInvalidoException('O cep informado é inválido.');
+        }
+    }
+
+    /**
+     * Returns true if ZIP is invalid.
+     *
      * @param string $cep
      * @return bool
      */
-    protected function validateCep(string $cep) : bool
+    protected function isInvalidCed(string $cep) : bool
     {
-        return preg_match('/^[0-9]{5}-{0,1}[0-9]{3}$/', trim($cep)) === 1 ? true : false;
+        if (preg_match('/^[0-9]{5}-{0,1}[0-9]{3}$/', trim($cep)) !== 1) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -99,26 +118,26 @@ class BuscaCep
      */
     public function setCep(string $cep) : BuscaCep
     {
-        if (!$this->validateCep($cep)) {
-            throw new CepInvalidoException('O cep informado é inválido.');
-        }
-
+        $this->validateCep($cep);
         $this->cep = $cep;
-
         $this->populateFields();
 
         return $this;
     }
 
     /**
-     * @return mixed
+     * Get ZIP code.
+     *
+     * @return string
      */
-    public function getCep()
+    public function getCep() : string
     {
         return $this->cep;
     }
 
     /**
+     * Get Street address.
+     *
      * @return string
      */
     public function getLogradouro() : string
@@ -127,6 +146,8 @@ class BuscaCep
     }
 
     /**
+     * Get Extra address.
+     *
      * @return string
      */
     public function getComplemento() : string
@@ -135,6 +156,8 @@ class BuscaCep
     }
 
     /**
+     * Get Neighborhood.
+     *
      * @return string
      */
     public function getBairro() : string
@@ -143,6 +166,8 @@ class BuscaCep
     }
 
     /**
+     * Get City.
+     *
      * @return string
      */
     public function getLocalidade() : string
@@ -151,6 +176,8 @@ class BuscaCep
     }
 
     /**
+     * Get State Abbreviation.
+     *
      * @return string
      */
     public function getUf() : string
@@ -159,6 +186,8 @@ class BuscaCep
     }
 
     /**
+     * Get Unity.
+     *
      * @return string
      */
     public function getUnidade() : string
@@ -167,6 +196,8 @@ class BuscaCep
     }
 
     /**
+     * Get IBGE.
+     *
      * @return string
      */
     public function getIbge() : string
@@ -175,6 +206,8 @@ class BuscaCep
     }
 
     /**
+     * Get GIA.
+     *
      * @return string
      */
     public function getGia() : string
@@ -183,6 +216,8 @@ class BuscaCep
     }
 
     /**
+     * Get Benchmark.
+     *
      * @return float
      */
     public function getTempoDePesquisa() : float
@@ -191,6 +226,8 @@ class BuscaCep
     }
 
     /**
+     * Get Associative array with results, if any
+     *
      * @return array
      */
     public function toArray() : array
@@ -208,5 +245,4 @@ class BuscaCep
             'tempo_de_pesquisa' => number_format($this->tempoDePesquisa, 2) . ' segundos',
         ];
     }
-
 }
