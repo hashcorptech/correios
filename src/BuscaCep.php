@@ -43,7 +43,7 @@ class BuscaCep
      */
     protected function validateCep(string $cep)
     {
-        if ($this->isInvalidCed($cep)) {
+        if ($this->isInvalidCep($cep)) {
             throw new CepInvalidoException('O cep informado é inválido.');
         }
     }
@@ -54,7 +54,7 @@ class BuscaCep
      * @param string $cep
      * @return bool
      */
-    protected function isInvalidCed(string $cep) : bool
+    protected function isInvalidCep(string $cep) : bool
     {
         if (preg_match('/^[0-9]{5}-{0,1}[0-9]{3}$/', trim($cep)) !== 1) {
             return true;
