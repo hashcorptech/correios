@@ -19,9 +19,9 @@ $endereco = new BuscaCep('01001-000');
 $endereco = new BuscaCep();
 $endereco->setCep('01001-000');
 ```
-> Caso informe um CEP inválido ou inexistente, a classe dispara uma *exception* do tipo `CepInvalidoException`
+> Caso informe um CEP inválido ou inexistente, a classe dispara uma _exception_ do tipo `CepInvalidoException`
 
-Feito isso, basta então acessar os getter da classe:
+Feito isso, basta então acessar os _getters_ da classe:
 ```php
 $endereco->getCep(); // '01001-000'
 $endereco->getLogradouro(); // 'Praça da Sé'
@@ -32,6 +32,10 @@ $endereco->getUf(); // estado com 2 letras 'SP'
 $endereco->getUnidade();
 $endereco->getIbge(); // '3550308' 
 $endereco->getGia(); // apenas para SP '1004'
+```
+Para sua conveniência, também é possível buscar todos os dados num array associativo:
+```php
+$endereco->toArray();
 ```
 
 Para mais informações sobre IBGE e GIA, visite o site [Viacep](https://viacep.com.br)
