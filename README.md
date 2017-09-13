@@ -36,3 +36,6 @@ $endereco->getGia(); // apenas para SP '1004'
 
 Para mais informações sobre IBGE e GIA, visite o site [Viacep](https://viacep.com.br)
 
+# Licença
+
+[Este projeto está sob a licença MIT](https://github.com/werneckbh/busca-cep/blob/master/LICENSE)
