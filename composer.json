@@ -1,0 +1,23 @@
+{
+    "name": "werneckbh/busca-cep",
+    "description": "Sistema de busca de endereços por CEP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Werneck",
+            "email": "brunovaulawerneck@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Werneckbh\\BuscaCep\\": "src/"
+        }
+    }
+}
