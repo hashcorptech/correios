@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/werneckbh/busca-cep.svg?branch=master)](https://travis-ci.org/werneckbh/busca-cep)
 # Busca CEP
 
 Sistema de busca de endereços por CEP, usando o serviço gratuito [Viacep](https://viacep.com.br)
