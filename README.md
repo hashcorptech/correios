@@ -1,46 +1,38 @@
-[![Build Status](https://travis-ci.org/werneckbh/busca-cep.svg?branch=master)](https://travis-ci.org/werneckbh/busca-cep)
 # Busca CEP
 
-Sistema de busca de endereços por CEP, usando o serviço gratuito [Viacep](https://viacep.com.br)
+Sistema de busca de endereços por CEP, usando o serviço gratuito [SIGEP - Correios](http://www.corporativo.correios.com.br/encomendas/sigepweb/doc/Manual_de_Implementacao_do_Web_Service_SIGEP_WEB.pdf)
 
 ## Instalação
 
 Para instalar, basta requerer via composer:
 
 ```bash
-composer require werneckbh/busca-cep
+composer require hedcler/correios
 ```
 
 ## Utilização
 
 Você pode buscar o endereço usando o construtor ou o método `->setCep('12345-678')`:
 ```php
-$endereco = new BuscaCep('01001-000');
-// ou
-$endereco = new BuscaCep();
-$endereco->setCep('01001-000');
+$endereco = new Cep('01001-000');
 ```
 > Caso informe um CEP inválido ou inexistente, a classe dispara uma _exception_ do tipo `CepInvalidoException`
 
 Feito isso, basta então acessar os _getters_ da classe:
 ```php
-$endereco->getCep(); // '01001-000'
-$endereco->getLogradouro(); // 'Praça da Sé'
-$endereco->getComplemento(); // 'lado ímpar'
-$endereco->getBairro(); // 'Sé'
-$endereco->getLocalidade(); // cidade 'São Paulo'
-$endereco->getUf(); // estado com 2 letras 'SP'
-$endereco->getUnidade();
-$endereco->getIbge(); // '3550308' 
-$endereco->getGia(); // apenas para SP '1004'
+$endereco->cep; // '01001-000'
+$endereco->street; // 'Praça da Sé'
+$endereco->complement; // 'lado ímpar'
+$endereco->neighborhood; // 'Sé'
+$endereco->city; // cidade 'São Paulo'
+$endereco->state; // estado com 2 letras 'SP'
 ```
+
 Para sua conveniência, também é possível buscar todos os dados num array associativo:
 ```php
 $endereco->toArray();
 ```
 
-Para mais informações sobre IBGE e GIA, visite o site [Viacep](https://viacep.com.br)
-
 # Licença
 
-[Este projeto está sob a licença MIT](https://github.com/werneckbh/busca-cep/blob/master/LICENSE)
+[Este projeto está sob a licença GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)
