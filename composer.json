@@ -2,7 +2,7 @@
     "name": "hedcler/correios",
     "description": "Sistema de integração com os Correios",
     "type": "library",
-    "license": "GPL",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Hedcler Morais",

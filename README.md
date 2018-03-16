@@ -35,4 +35,4 @@ $endereco->toArray();
 
 # Licença
 
-[Este projeto está sob a licença GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[Este projeto está sob a licença GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html)
