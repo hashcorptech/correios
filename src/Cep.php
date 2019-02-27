@@ -11,7 +11,6 @@ class Cep
 
     protected $cep;
     protected $street;
-    protected $complement;
     protected $neighborhood;
     protected $city;
     protected $state;
@@ -72,7 +71,6 @@ class Cep
         return [
             'cep' => $this->cep,
             'street' => $this->street,
-            'complement' => $this->complement,
             'city' => $this->city,
             'neighborhood' => $this->neighborhood,
             'state' => $this->state,
