@@ -51,7 +51,6 @@ class Cep
         }
 
         $this->street = $data->end;
-        $this->complement = sprintf('%s %s', $data->complemento, $data->complemento2);
         $this->city = $data->cidade;
         $this->neighborhood = $data->bairro;
         $this->state = $data->uf;
